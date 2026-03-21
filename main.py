@@ -1,6 +1,7 @@
 from pricing.monte_carlo import monte_carlo_price
 from pricing.black_scholes import black_scholes
 
+#testing shenanigans 
 if __name__ == "__main__":
     price_call_monte = monte_carlo_price(S=100, K=110, T=0.25, r=0.05, sigma=0.20, option_type="call")
     price_put_monte = monte_carlo_price(S=100, K=110, T=0.25, r=0.05, sigma=0.20, option_type="put")

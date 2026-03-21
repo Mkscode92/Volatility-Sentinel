@@ -6,9 +6,6 @@ def monte_carlo_price(S, K, T, r, sigma, option_type="call", num_simulations=100
     Simulate `num_simulations` possible end prices for the stock,
     calculate the payoff for each, discount back to present value.
     """
-    # Step 1: simulate end prices
-    # Stock price follows: S * exp((r - 0.5*sigma^2)*T + sigma*sqrt(T)*Z)
-    # where Z is a random standard normal number
     Z = np.random.standard_normal(num_simulations)
     end_prices = S * np.exp((r - 0.5 * sigma**2) * T + sigma * np.sqrt(T) * Z)
 
@@ -17,9 +14,7 @@ def monte_carlo_price(S, K, T, r, sigma, option_type="call", num_simulations=100
     elif option_type == "put":
             payoffs = np.maximum(K - end_prices, 0) 
     
-    # Step 3: discount average payoff back to present value
-    # price = exp(-r*T) * mean(payoffs)
-
+    #discounting the average payoff to get the price 
     price = math.exp(-r * T) * float(payoffs.mean())
 
     return {f'price_{option_type}': round(price, 4)}

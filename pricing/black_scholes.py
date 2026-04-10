@@ -32,3 +32,4 @@ if __name__ == "__main__":
     print(f"Call price: ${call_values["price"]}\nCall delta: ${call_values["delta"]}")
     print(f"Put price: ${put_values["price"]}\nPut delta: ${put_values["delta"]}")
     print(f"Vega: ${call_values["vega"]}")
+
